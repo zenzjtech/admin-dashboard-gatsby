@@ -75,7 +75,9 @@ const useStyles = makeStyles((theme) => ({
   },
   quoteText: {
     fontWeight: 300,
-    color: 'white'
+    fontSize: 17,
+    color: 'white',
+    margin: theme.spacing(3)
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
