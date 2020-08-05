@@ -6,6 +6,7 @@ import {
   HeaderMockUp,
   NavHeaderMockUp,
   NavContentMockUp,
+
   ContentMockUp,
   FooterMockUp,
 } from "@mui-treasury/mockup/layout";
@@ -19,6 +20,9 @@ import Layout, {
   getContent,
   getFooter,
 } from "@mui-treasury/layout";
+
+import { userService } from "../../services"
+import UnAuthenticated from "../UnAuthenticated"
 
 const Header = getHeader(styled)
 const DrawerSidebar = getDrawerSidebar(styled)
@@ -56,7 +60,7 @@ scheme.configureEdgeSidebar((builder) => {
 scheme.enableAutoCollapse('unique_id', 'md')
 
 const Dashboard = () => {
-  return (
+  return !userService.isLoggedIn() ? <UnAuthenticated/> : (
     <Root scheme={scheme}>
       {({ state: { sidebar } }) => (
         <>
@@ -75,7 +79,6 @@ const Dashboard = () => {
             <CollapseBtn />
           </DrawerSidebar>
           <Content>
-            <ContentMockUp />
           </Content>
           <Footer>
             <FooterMockUp />
