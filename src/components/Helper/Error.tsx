@@ -39,7 +39,7 @@ export default function Error(props) {
             </IconButton>
           }
         >
-          { props.error }
+          { typeof props.error !== 'string' ? JSON.stringify(props.error) : props.error }
         </Alert>
       </Collapse>
     </div>
