@@ -9,7 +9,7 @@ export const userService = {
 };
 
 function isLoggedIn() {
-  return localStorage.getItem(userConstants.KEY_USER) != null;
+  return typeof window !== 'undefined' && localStorage.getItem(userConstants.KEY_USER) != null;
 }
 
 function login(username, password) {
@@ -23,14 +23,14 @@ function login(username, password) {
     .then(handleResponse)
     .then(data => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
-      localStorage.setItem(userConstants.KEY_USER, JSON.stringify(data.token));
+      typeof window !== "undefined" && localStorage.setItem(userConstants.KEY_USER, JSON.stringify(data.token));
       return data;
     });
 }
 
 function logout() {
   // remove user from local storage to log user out
-  localStorage.removeItem(userConstants.KEY_USER);
+  typeof window !== "undefined" && localStorage.removeItem(userConstants.KEY_USER);
 }
 
 function handleResponse(response) {
