@@ -34,7 +34,7 @@ scheme.configureHeader((builder) => {
 interface Props {
 }
 interface State {
-  username: String,
+  email: String,
   password: String
 }
 class Login extends React.Component<Props, State> {
@@ -45,7 +45,7 @@ class Login extends React.Component<Props, State> {
     // this.props.userLogout();
 
     this.state = {
-      username: '',
+      email: '',
       password: '',
       error: ''
     };
@@ -57,10 +57,10 @@ class Login extends React.Component<Props, State> {
   }
 
   handleSubmit = (e) => {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     e.preventDefault();
     this.props
-      .userLogin(username, password)
+      .userLogin(email, password)
       .catch(error => {
         this.setState({error: error});
       });
@@ -71,7 +71,7 @@ class Login extends React.Component<Props, State> {
   }
 
   render() {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
     const classes = this.props.classes;
     return (
       <Root scheme={scheme}>
@@ -108,10 +108,10 @@ class Login extends React.Component<Props, State> {
                   margin="normal"
                   required={true}
                   fullWidth
-                  id="username"
-                  label="Username"
-                  name="username"
-                  value={username}
+                  id="email"
+                  label="email"
+                  name="email"
+                  value={email}
                   onChange={this.handleChange}
                   onFocus={this.clearError}
                   autoFocus
@@ -231,7 +231,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    userLogin: (username, password) => dispatch(userActions.login(username, password)),
+    userLogin: (email, password) => dispatch(userActions.login(email, password)),
     userLogout: () => dispatch(userActions.logout())
   }
 }

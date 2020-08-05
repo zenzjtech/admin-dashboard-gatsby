@@ -39,7 +39,7 @@ export default function Error(props) {
             </IconButton>
           }
         >
-          { props.Error }
+          { props.error }
         </Alert>
       </Collapse>
     </div>

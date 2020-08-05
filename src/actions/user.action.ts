@@ -2,11 +2,11 @@ import { userConstants } from '../constants'
 import { userService} from "../services"
 import { navigate } from "@reach/router"
 
-function login(username, password) {
+function login(email, password) {
   return async dispatch => {
-    dispatch(request({ username }));
+    dispatch(request({ email }));
     try {
-      const data = await userService.login(username, password);
+      const data = await userService.login(email, password);
       dispatch(success(data));
       await navigate('/app')
     } catch (error) {
