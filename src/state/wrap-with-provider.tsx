@@ -4,7 +4,7 @@ import { Provider } from "react-redux"
 import store from './store';
 import { configureFakeBackend } from '../helpers';
 
-if (process.env.FAKE_BACKEND) {
+if (process.env.GATSBY_FAKE_BACKEND) {
   configureFakeBackend();
 }
 

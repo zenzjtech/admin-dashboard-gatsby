@@ -1,6 +1,6 @@
 import { authHeader } from '../helpers';
 import { userConstants }  from '../constants'
-const apiUrl = process.env.API_URL;
+const apiUrl = process.env.GATSBY_API_URL;
 
 export const userService = {
   isLoggedIn,
