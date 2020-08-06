@@ -23,14 +23,14 @@ function login(email, password) {
     .then(handleResponse)
     .then(data => {
       // store user details and jwt token in local storage to keep user logged in between page refreshes
-      typeof window !== "undefined" && localStorage.setItem(userConstants.KEY_USER, JSON.stringify(data.token));
+      // typeof window !== "undefined" && localStorage.setItem(userConstants.KEY_USER, JSON.stringify(data.token));
       return data;
     });
 }
 
 function logout() {
   // remove user from local storage to log user out
-  typeof window !== "undefined" && localStorage.removeItem(userConstants.KEY_USER);
+  // typeof window !== "undefined" && localStorage.removeItem(userConstants.KEY_USER);
 }
 
 function handleResponse(response) {

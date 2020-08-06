@@ -1,7 +1,8 @@
 import { userConstants } from '../../constants';
 
-const user = typeof window === 'undefined'  ? null : JSON.parse(localStorage.getItem(userConstants.KEY_USER));
-const initialState = user ? { loggedIn: true, user } : {};
+/*const user = typeof window === 'undefined'  ? null : JSON.parse(localStorage.getItem(userConstants.KEY_USER));
+const initialState = user ? { loggedIn: true, user } : {};*/
+const initialState = {};
 
 export function auth(state = initialState, action) {
   switch (action.type) {

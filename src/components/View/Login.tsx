@@ -41,9 +41,6 @@ class Login extends React.Component<Props, State> {
   constructor(props: any) {
     super(props);
 
-    // reset login status
-    // this.props.userLogout();
-
     this.state = {
       email: '',
       password: '',
@@ -231,8 +228,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    userLogin: (email, password) => dispatch(userActions.login(email, password)),
-    userLogout: () => dispatch(userActions.logout())
+    userLogin: (email, password) => dispatch(userActions.login(email, password))
   }
 }
 
