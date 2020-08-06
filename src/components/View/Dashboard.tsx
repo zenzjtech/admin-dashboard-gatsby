@@ -6,7 +6,6 @@ import {
   HeaderMockUp,
   NavHeaderMockUp,
   NavContentMockUp,
-
   ContentMockUp,
   FooterMockUp,
 } from "@mui-treasury/mockup/layout";
@@ -76,6 +75,7 @@ const Dashboard = () => {
             <CollapseBtn />
           </DrawerSidebar>
           <Content>
+            <ContentMockUp/>
           </Content>
           <Footer>
             <FooterMockUp />
