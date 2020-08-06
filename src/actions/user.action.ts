@@ -8,7 +8,6 @@ function login(email, password) {
     try {
       const data = await userService.login(email, password);
       dispatch(success(data));
-      await navigate('/app')
     } catch (error) {
       dispatch(failure(error));
       throw error;

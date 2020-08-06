@@ -8,7 +8,7 @@ import {
   Paper, Box, Grid,
   Typography, withStyles
 } from "@material-ui/core";
-import Alert from '@material-ui/lab/Alert';
+import { navigate} from "@reach/router"
 import styled from 'styled-components';
 import Layout, { Root, getHeader } from '@mui-treasury/layout';
 import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
@@ -32,10 +32,12 @@ scheme.configureHeader((builder) => {
 });
 
 interface Props {
+  classes: any
 }
 interface State {
   email: String,
-  password: String
+  password: String,
+  error: String
 }
 class Login extends React.Component<Props, State> {
   constructor(props: any) {
@@ -58,6 +60,9 @@ class Login extends React.Component<Props, State> {
     e.preventDefault();
     this.props
       .userLogin(email, password)
+      .then(() => {
+        navigate('/app')
+      })
       .catch(error => {
         this.setState({error: error});
       });

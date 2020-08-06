@@ -21,9 +21,6 @@ import Layout, {
   getFooter,
 } from "@mui-treasury/layout";
 
-import { userService } from "../../services"
-import UnAuthenticated from "../UnAuthenticated"
-
 const Header = getHeader(styled)
 const DrawerSidebar = getDrawerSidebar(styled)
 const SidebarTrigger = getSidebarTrigger(styled)
@@ -60,7 +57,7 @@ scheme.configureEdgeSidebar((builder) => {
 scheme.enableAutoCollapse('unique_id', 'md')
 
 const Dashboard = () => {
-  return !userService.isLoggedIn() ? <UnAuthenticated/> : (
+  return (
     <Root scheme={scheme}>
       {({ state: { sidebar } }) => (
         <>

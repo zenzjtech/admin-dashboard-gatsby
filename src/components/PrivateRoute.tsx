@@ -1,14 +1,31 @@
 import React, { Component } from "react"
+import { connect } from "react-redux"
 import { navigate } from "gatsby"
-import { userService } from "../services"
 
-const PrivateRoute = ({ component: Component, location, ...rest }) => {
-  if (typeof window !== "undefined" && !userService.isLoggedIn() && location.pathname !== `/app/login`) {
-    navigate("/app/login")
-    return null
+class PrivateRoute extends React.Component<any, any> {
+  constructor(props: any) {
+    super(props);
   }
-  return <Component {...rest} />
+  componentDidMount(): void {
+    if (!this.props.loggedIn && this.props.location.pathname !== '/app/login') {
+      navigate('/app/login')
+    }
+  }
+
+  render() {
+    const { component: Component, location, ...rest } = this.props;
+    return (
+      <Component { ...rest }/>
+      // <h1>Hello world</h1>
+    )
+  }
 }
 
-export default PrivateRoute
+const mapStateToProps = (state) => {
+  return {
+    loggedIn: state.auth.loggedIn
+  }
+};
+
+export default connect(mapStateToProps)(PrivateRoute)
 
